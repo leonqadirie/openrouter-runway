@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.trmnl.com)",
+      "WebFetch(domain:trmnl.com)",
+      "WebFetch(domain:usetrmnl.com)",
+      "WebFetch(domain:help.usetrmnl.com)",
+      "WebFetch(domain:help.trmnl.com)"
+    ]
+  }
+}
