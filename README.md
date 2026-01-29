@@ -1,5 +1,8 @@
 # OpenRouter Runway for TRMNL
 
+> [!WARNING]
+> **Archived** - This repository is no longer maintained.
+
 **Know your balance. Keep shipping.**
 
 A TRMNL plugin that displays your OpenRouter credit balance — so you never hit $0 mid-flow.
