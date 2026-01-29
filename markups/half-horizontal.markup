@@ -1,0 +1,56 @@
+<!-- TRMNL Plugin: OpenRouter Credits - HALF HORIZONTAL (800×240px) -->
+<!-- Data format: { "data": { "total_usage": 0.01946013, "total_credits": 10 } } -->
+<!-- Emojis: 🔥⭐ when >9 credits, 💩 when 0 credits -->
+
+<div class="layout layout--col gap">
+    <!-- Header -->
+    <div class="flex flex--center gap--small">
+        <span class="value value--small">⭐</span>
+        <span class="title title--small">OpenRouter Free Credits</span>
+        <span class="value value--small">⭐</span>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid--cols-2 gap">
+        <!-- Total Usage -->
+        <div class="item">
+            <div class="meta"></div>
+            <div class="content">
+                <span class="value value--xlarge value--tnums"
+                    >${{ data.total_usage | round: 2 }}</span
+                >
+                <span class="label label--small">Usage</span>
+            </div>
+        </div>
+
+        <!-- Credits Remaining with Emoji -->
+        <div class="item item--emphasis-3">
+            <div class="meta"></div>
+            <div class="content">
+                <div class="flex flex--center gap--small">
+                    <span class="value value--xlarge value--tnums"
+                        >{{ data.total_credits }}</span
+                    >
+                    {% if data.total_usage > data.total_credits %}
+                    <span class="value value--large">🏦</span>
+                    {% elsif data.total_credits > 9 %} {% assign emojis =
+                    "🔥,⭐" | split: "," %} {% assign random_index = "now" |
+                    date: "%N" | modulo: 2 %}
+                    <span class="value value--large"
+                        >{{ emojis[random_index] }}</span
+                    >
+                    {% elsif data.total_credits == 0 %}
+                    <span class="value value--large">💩</span>
+                    {% endif %}
+                </div>
+                <span class="label label--small">Credits</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="title_bar">
+    <img class="image" src="/images/plugins/trmnl--render.svg" />
+    <span class="title">OpenRouter</span>
+    <span class="instance">Free Tier</span>
+</div>

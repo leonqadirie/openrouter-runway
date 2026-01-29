@@ -1,0 +1,71 @@
+<!-- TRMNL Plugin: OpenRouter Credits - FULL VIEW (800×480px) -->
+<!-- Data format: { "data": { "total_usage": 0.01946013, "total_credits": 10 } } -->
+<!-- Emojis: 🔥⭐ when >9 credits, 💩 when 0 credits -->
+
+<div class="layout layout--col gap--space-between">
+    <!-- Header -->
+    <div class="flex flex--center gap--small">
+        <span class="value value--large">⭐</span>
+        <span class="title">OpenRouter Free Credits</span>
+        <span class="value value--large">⭐</span>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid--cols-2 gap--large">
+        <!-- Total Usage -->
+        <div class="item">
+            <div class="meta"></div>
+            <div class="content">
+                <span class="value value--xxxlarge value--tnums"
+                    >${{ data.total_usage | round: 2 }}</span
+                >
+                <span class="label">Usage</span>
+            </div>
+        </div>
+
+        <!-- Credits Remaining with Emoji -->
+        <div class="item item--emphasis-3">
+            <div class="meta"></div>
+            <div class="content">
+                <div class="flex flex--center gap--small">
+                    <span class="value value--xxxlarge value--tnums"
+                        >{{ data.total_credits }}</span
+                    >
+                    {% if data.total_usage > data.total_credits %}
+                    <span class="value value--xxlarge">🏦</span>
+                    {% elsif data.total_credits > 9 %} {% assign emojis =
+                    "🔥,⭐" | split: "," %} {% assign random_index = "now" |
+                    date: "%N" | modulo: 2 %}
+                    <span class="value value--xxlarge"
+                        >{{ emojis[random_index] }}</span
+                    >
+                    {% elsif data.total_credits == 0 %}
+                    <span class="value value--xxlarge">💩</span>
+                    {% endif %}
+                </div>
+                <span class="label">Credits</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Status Message -->
+    <div class="flex flex--center">
+        {% if data.total_usage > data.total_credits %}
+        <span class="title">🏦 You owe the bank!!!</span>
+        {% elsif data.total_credits > 9 %}
+        <span class="title">💸 Lots of credits!</span>
+        {% elsif data.total_credits > 5 %}
+        <span class="title">⚡ Running low</span>
+        {% elsif data.total_credits > 0 %}
+        <span class="title">⚠️ Almost out!</span>
+        {% else %}
+        <span class="title">💩 Out of credits!</span>
+        {% endif %}
+    </div>
+</div>
+
+<div class="title_bar">
+    <img class="image" src="/images/plugins/trmnl--render.svg" />
+    <span class="title">OpenRouter</span>
+    <span class="instance">Free Tier</span>
+</div>
