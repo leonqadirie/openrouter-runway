@@ -36,7 +36,17 @@ No surprises. No failed requests. Just a quiet reminder to refill before it matt
 - **Spend rate** — How fast you're burning through credits
 
 ## Setup and Configuration
-- 
+
+Create a new Private Plugin
+
+Set strategy:
+
+- Polling 
+  - URL: https://openrouter.ai/api/v1/credits
+  - Verb: GET
+
+Add the website & API key within your TRMNL plugin setup
+
 
 ## Built With
 
